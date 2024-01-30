@@ -61,69 +61,69 @@ if __name__ == '__main__':
     print(chebyshev_extrema(8))
     print(invert_vandermonde_matrix(equispaced_points(8)))
 
-    max_nodes = 50
-    nodes_range = range(2, max_nodes + 1)
-    condition_numbers_equispaced = []
-    condition_numbers_chebyshev = []
-    # problem a
-    for n in nodes_range:
-        # For equispaced nodes
-        equispaced = equispaced_points(n)
-        V_equispaced = invert_vandermonde_matrix(equispaced)
-        condition_numbers_equispaced.append(condition_number(V_equispaced))
-
-        # For chebyshev nodes
-        chebyshev = chebyshev_extrema(n)
-        V_chebyshev = invert_vandermonde_matrix(chebyshev)
-        condition_numbers_chebyshev.append(condition_number(V_chebyshev))
-
-    plt.plot(nodes_range, condition_numbers_equispaced, label='Equispaced', marker='o', markersize=4)
-    plt.plot(nodes_range, condition_numbers_chebyshev, label='Chebyshev', marker='x', markersize=4)
-    plt.yscale('log')
-    plt.xlabel('Number of Nodes')
-    plt.ylabel('Condition Number')
-    plt.title('Condition Number vs Number of Nodes (Max Node: 50)')
-    plt.legend()
-    plt.grid(True)
-    plt.show()
-
-
-    #problem b
-
-    plot_grid = np.linspace(-1, 1, 1000)
-    # when N = 9
-    equispaced = equispaced_points(9)
-    coeff_equispaced = polynomial_interpolation(equispaced)
-    y_equispaced = evaluate_polynomial_using_coef(coeff_equispaced, plot_grid)
-
-    chebyshev = chebyshev_extrema(9)
-    coeff_chebyshev = polynomial_interpolation(chebyshev)
-    y_chebyshev = evaluate_polynomial_using_coef(coeff_chebyshev, plot_grid)
-
-    plt.plot(plot_grid, y_equispaced, '--', label=f'Equispaced Points N=9', linewidth=1)
-    plt.plot(plot_grid, y_chebyshev, '-.', label=f'Chebyshev Points N=9', linewidth=1)
-    plt.title(f'Polynomial Interpolants for N=9')
-    plt.legend()
-    plt.xlabel('x')
-    plt.ylabel('y')
-    plt.show()
-
-    #when N = 50
-    equispaced = equispaced_points(50)
-    coeff_equispaced = polynomial_interpolation(equispaced)
-    y_equispaced = evaluate_polynomial_using_coef(coeff_equispaced, plot_grid)
-
-    chebyshev = chebyshev_extrema(50)
-    coeff_chebyshev = polynomial_interpolation(chebyshev)
-    y_chebyshev = evaluate_polynomial_using_coef(coeff_chebyshev, plot_grid)
-
-    plt.plot(plot_grid, y_equispaced, '--', label=f'Equispaced Points N=50', linewidth=1)
-    plt.plot(plot_grid, y_chebyshev, '-.', label=f'Chebyshev Points N=50', linewidth=1)
-    plt.title(f'Polynomial Interpolants for N=50')
-    plt.legend()
-    plt.xlabel('x')
-    plt.ylabel('y')
-    plt.show()
+    # max_nodes = 50
+    # nodes_range = range(2, max_nodes + 1)
+    # condition_numbers_equispaced = []
+    # condition_numbers_chebyshev = []
+    # # problem a
+    # for n in nodes_range:
+    #     # For equispaced nodes
+    #     equispaced = equispaced_points(n)
+    #     V_equispaced = invert_vandermonde_matrix(equispaced)
+    #     condition_numbers_equispaced.append(condition_number(V_equispaced))
+    #
+    #     # For chebyshev nodes
+    #     chebyshev = chebyshev_extrema(n)
+    #     V_chebyshev = invert_vandermonde_matrix(chebyshev)
+    #     condition_numbers_chebyshev.append(condition_number(V_chebyshev))
+    #
+    # plt.plot(nodes_range, condition_numbers_equispaced, label='Equispaced', marker='o', markersize=4)
+    # plt.plot(nodes_range, condition_numbers_chebyshev, label='Chebyshev', marker='x', markersize=4)
+    # plt.yscale('log')
+    # plt.xlabel('Number of Nodes')
+    # plt.ylabel('Condition Number')
+    # plt.title('Condition Number vs Number of Nodes (Max Node: 50)')
+    # plt.legend()
+    # plt.grid(True)
+    # plt.show()
+    #
+    #
+    # #problem b
+    #
+    # plot_grid = np.linspace(-1, 1, 1000)
+    # # when N = 9
+    # equispaced = equispaced_points(9)
+    # coeff_equispaced = polynomial_interpolation(equispaced)
+    # y_equispaced = evaluate_polynomial_using_coef(coeff_equispaced, plot_grid)
+    #
+    # chebyshev = chebyshev_extrema(9)
+    # coeff_chebyshev = polynomial_interpolation(chebyshev)
+    # y_chebyshev = evaluate_polynomial_using_coef(coeff_chebyshev, plot_grid)
+    #
+    # plt.plot(plot_grid, y_equispaced, '--', label=f'Equispaced Points N=9', linewidth=1)
+    # plt.plot(plot_grid, y_chebyshev, '-.', label=f'Chebyshev Points N=9', linewidth=1)
+    # plt.title(f'Polynomial Interpolants for N=9')
+    # plt.legend()
+    # plt.xlabel('x')
+    # plt.ylabel('y')
+    # plt.show()
+    #
+    # #when N = 50
+    # equispaced = equispaced_points(50)
+    # coeff_equispaced = polynomial_interpolation(equispaced)
+    # y_equispaced = evaluate_polynomial_using_coef(coeff_equispaced, plot_grid)
+    #
+    # chebyshev = chebyshev_extrema(50)
+    # coeff_chebyshev = polynomial_interpolation(chebyshev)
+    # y_chebyshev = evaluate_polynomial_using_coef(coeff_chebyshev, plot_grid)
+    #
+    # plt.plot(plot_grid, y_equispaced, '--', label=f'Equispaced Points N=50', linewidth=1)
+    # plt.plot(plot_grid, y_chebyshev, '-.', label=f'Chebyshev Points N=50', linewidth=1)
+    # plt.title(f'Polynomial Interpolants for N=50')
+    # plt.legend()
+    # plt.xlabel('x')
+    # plt.ylabel('y')
+    # plt.show()
 
     #problem c
 
@@ -131,7 +131,8 @@ if __name__ == '__main__':
     y_true = runge_function(equispaced_nodes)
     errors = []
     times = []
-    for N in range(2, 51):
+    numbers = [i for i in range(3, 51)]
+    for N in numbers:
         start_time = time.time()
         chebyshev = chebyshev_extrema(N)
         coeff_chebyshev = polynomial_interpolation(chebyshev)
@@ -149,6 +150,20 @@ if __name__ == '__main__':
     plt.ylabel('l2 errors')
     plt.title('Accuracy vs time')
     plt.show()
+
+    plt.plot(numbers, errors, marker='o')
+    plt.xlabel('nodes numbers')
+    plt.ylabel('l2 errors')
+    plt.title('Accuracy vs node')
+    plt.show()
+
+    plt.plot(numbers, times, marker='o')
+    plt.xlabel('nodes numbers')
+    plt.ylabel('Total Time (seconds)')
+    plt.title('time vs nodes')
+    plt.show()
+
+
 
 
 
